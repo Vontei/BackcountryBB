@@ -2,7 +2,7 @@
 
 var app = require('./index');
 var http = require('http');
-
+require('dotenv').load()
 
 var server;
 

@@ -3,3 +3,15 @@ extends layout
 block content
 
   h1 Sign Up Page
+  form(action='/user' method='post')
+    label(for='firstName') First Name
+    input(type='text' name='firstName' id='firstName')
+    label(for='lastName') Last Name
+    input(type='text' name='lastName' id='lastName')
+    label(for='email') Email
+    input(type='text' name='email' id='email')
+    label(for='password') Password
+    input(type='password' name='password' id='password')
+    label(for='pwConfirm') Password Confirmation
+    input(type='password' name='pwConfirm' id='pwConfirm')
+    input(type='submit' value='SIGN UP')

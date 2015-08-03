@@ -2,6 +2,9 @@
 
 var express = require('express');
 var kraken = require('kraken-js');
+require('dotenv').load()
+var session = require('cookie-session')
+var lusca = require('lusca');
 
 
 var options, app;
@@ -21,6 +24,20 @@ options = {
 };
 
 app = module.exports = express();
+
+app.use(session({
+  name: 'session',
+  keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2, process.env.SESSION_KEY3]
+}))
+app.use(lusca({
+    _csrf: false,
+    csp: { /* ... */},
+    xframe: 'ALLOW-FROM uri',
+    p3p: 'ABCDEF',
+    hsts: {maxAge: 31536000, includeSubDomains: false, preload: false},
+    xssProtection: false
+}));
+
 app.use(kraken(options));
 app.on('start', function () {
     console.log('Application ready to serve requests.');
