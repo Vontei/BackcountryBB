@@ -8,6 +8,7 @@ module.exports = function (router) {
 
 
     router.get('/', function (req, res) {
+      console.log(req);
         res.render('user')
     })
 
@@ -23,7 +24,7 @@ module.exports = function (router) {
           firstName: firstName,
           lastName: lastName,
           email: email,
-          password: hash,
+          password: hash
         }).then(function () {
           res.redirect('/')
         })

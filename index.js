@@ -30,12 +30,12 @@ app.use(session({
   keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2, process.env.SESSION_KEY3]
 }))
 app.use(lusca({
-    _csrf: false,
+    csrf: true,
     csp: { /* ... */},
-    xframe: 'ALLOW-FROM uri',
+    xframe: 'SAMEORIGIN',
     p3p: 'ABCDEF',
-    hsts: {maxAge: 31536000, includeSubDomains: false, preload: false},
-    xssProtection: false
+    hsts: {maxAge: 31536000, includeSubDomains: true, preload: true},
+    xssProtection: true
 }));
 
 app.use(kraken(options));
