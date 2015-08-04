@@ -36,7 +36,7 @@ app.use(lusca({
     xframe: 'SAMEORIGIN',
     p3p: 'ABCDEF',
     hsts: {maxAge: 31536000, includeSubDomains: false, preload: false},
-    xssProtection: false
+    xssProtection: true
 }));
 
 app.use(kraken(options));

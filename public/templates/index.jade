@@ -2,7 +2,7 @@ extends layout
 
 block content
   if _csrf
-    input(type='hidden' value=_csrf)
+    input(type='hidden' name='_csrf' value=_csrf)
   div.nav
     ul
       li Home
