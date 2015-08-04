@@ -19,6 +19,7 @@ module.exports = function (router) {
       var password = req.body.password
       var pwConfirm = req.body.pwConfirm
       var hash = bcrypt.hashSync(password,8)
+      var csrf = req.body._csrf;
       if(password === pwConfirm){
         db.Users.create({
           firstName: firstName,

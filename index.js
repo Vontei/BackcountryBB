@@ -27,15 +27,16 @@ app = module.exports = express();
 
 app.use(session({
   name: 'session',
-  keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2, process.env.SESSION_KEY3]
+  keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2, process.env.SESSION_KEY3],
+
 }))
 app.use(lusca({
-    csrf: true,
+    csrf: false,
     csp: { /* ... */},
     xframe: 'SAMEORIGIN',
     p3p: 'ABCDEF',
-    hsts: {maxAge: 31536000, includeSubDomains: true, preload: true},
-    xssProtection: true
+    hsts: {maxAge: 31536000, includeSubDomains: false, preload: false},
+    xssProtection: false
 }));
 
 app.use(kraken(options));
